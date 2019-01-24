@@ -1,0 +1,65 @@
+<html>
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+
+
+<h1>Homework submission</h1><h2><br/>ID430</h2>
+<br>
+	
+
+
+<form action="upload_file.php" method="post" enctype="multipart/form-data">
+
+<span class="a'">
+<label>Student ID: </label>
+<input type="text" name="sid"><br>
+</spam>
+<br>
+
+<span>
+<label>Email: </label>
+<input type="text" name="email"><br>
+</spam>
+<br>
+
+<span>
+<label>Subject: </label>
+<select name="subject">
+  <option value="SPHW">SPHW</option>
+ </select>
+</span>
+<br>
+
+<span>
+<label>Homework number: </label>
+<select name="hw">
+  <option value="select">Select</opton>
+  <option value="0">HW0</option>
+  <option value="1">HW1</option>
+  <option value="2">HW2</option>
+  <option value="3">HW3</opton>
+  <option value="4">HW4</opton>
+  <option value="5">HW5</opton>
+  <option value="6">HW6</opton>
+  <option value="7">HW7</opton>
+  <option value="10">MIDTERM</opton>
+  <option value="11">FINAL</opton>
+ </select>
+</span>
+<br>
+
+<span>
+<label>File (zip - max 20MB): </label>
+<input type="file" name="file" id="file"><br>
+</span>
+<br>
+
+<input type="submit" name="submit" value="Submit">
+<br>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+h1 {
+	color: #c00101;
+	font-size: 30px;
+	display: inline-block;
+}	
+
+h2 {
+	color: #c00101;
+	font-size: 12px;
+	display: inline-block;
+	margin-left: 10px;
+}	
+
+
+label
+{
+	color: #1717ff;
+}
+
+span
+{
+	font-size: 20px;
+	background-color: #f5f500;
+	display: block;
+}
+
+error
+{
+	color: #ffffff;
+	background-color: #f50c03;
+	font-size: 20px;
+}
+
+
+correct
+{
+	color: #ffffff;
+	background-color: #00cd02;
+	font-size: 20px;	
+}
