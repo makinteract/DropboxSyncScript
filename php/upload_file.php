@@ -135,10 +135,11 @@ $fileToSave= $team ? $subject . "_" . $hw . "_" . $sid . "_TEAM.zip" : $subject 
 move_uploaded_file($uploadedFile, $GLOBALS['UPLOAD_DIR'] . $fileToSave);
 
 // Transter files to dropbox
-$command = escapeshellcmd('../python/dropbox_uploader.py');
-$output = shell_exec($command);
+// $command = escapeshellcmd('../python/dropbox_uploader.py');
+// $output = shell_exec($command);
 
-displaySuccess ($fileToSave, $submissionTime);
+// displaySuccess ($fileToSave, $submissionTime);
+echo $GLOBALS['UPLOAD_DIR'];
 
 // Log to file
 $timeStamp = date("F_j_Y-G:i");
