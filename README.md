@@ -32,11 +32,38 @@ Finally, you need to setup an app with Dropbox and generate a *TOKEN* string - y
 
 Close the repository on your server.
 
-'''
+```
+git clone https://github.com/makinteract/Homework2DropBox.git
+cs Homework2DropBox
+```
 
-'''
+With an aditor of choice, open the file **python -> dropbox_uploader.py** and make sure that the first line indicates the path to your python installation..
 
+```
+# Point this to your python installation
+#!/usr/bin/python
 
+```
 
+Finally, open the **config.ini** file and copy here the token from Dropbox and the location of the path to the repository.
 
-Modified first line of the python script
+For example:
+
+```
+; config.ini
+[DEFAULT]
+TOKEN= jaslfkjasldjf adsfasdf8as09d8fasdfjasldkfjkasdjflkas
+BASE_DIR= /Users/andrea/GIT/Homework2DropBox/
+UPLOAD_DIR= files/upload/
+ARCHIVE_DIR= files/archive/
+MAX_FILE_SIZE= 20000000
+```
+You are all set.
+
+### Usage
+
+Point your web-browser to the **index.html** file, fill up the form and upload your file.
+
+### Video
+
+You can see a video that explains this firther at [this link](....)
