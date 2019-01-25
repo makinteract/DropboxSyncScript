@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-
 import dropbox
 from ConfigParser import SafeConfigParser
 import shutil, sys, os, re
@@ -10,10 +9,10 @@ import datetime
 parser = SafeConfigParser()
 parser.read('../config.ini')
 
-TOKEN = parser.get('DEFAULT','TOKEN')
-BASE_DIR= parser.get('DEFAULT','BASE_DIR')
-UPLOAD_DIR= BASE_DIR + parser.get('DEFAULT','UPLOAD_DIR')
-ARCHIVE_DIR= BASE_DIR + parser.get('DEFAULT','ARCHIVE_DIR')
+TOKEN = parser.get('default','token')
+BASE_DIR= parser.get('default','base_dir')
+UPLOAD_DIR= BASE_DIR + parser.get('default','upload_dir')
+ARCHIVE_DIR= BASE_DIR + parser.get('default','archive_dir')
 
 
 class TransferData:
