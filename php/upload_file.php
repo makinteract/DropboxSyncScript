@@ -1,9 +1,11 @@
 <?php
 
 // GLOBALS
-$MAX_FILE_SIZE = 20000000;
+$ini_array = parse_ini_file("../config.ini");
+
+$MAX_FILE_SIZE = $ini_array[MAX_FILE_SIZE];
 $RESULT_PAGE = "result.php";
-$UPLOAD_DIR = "../files/upload/";
+$UPLOAD_DIR = $ini_array[BASE_DIR].$ini_array[UPLOAD_DIR];
 
 
 // HELPERS
@@ -150,6 +152,7 @@ $log = $log.',timeStamp='.$timeStamp;
 $log = $log.',fileToSave='.$fileToSave.PHP_EOL;
 
 file_put_contents('./logs'.'.log', $log, FILE_APPEND);
+
 
 
 ?>
