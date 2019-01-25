@@ -1,4 +1,4 @@
-# DropboxSyncScript
+# Homework2DropBox
 
 ## Overview
 This software allows students to upload their homework on a form, and the instructor to receive the uploaded file in a Dropbox folder. The name of the file is formatted for easy retrieval, and it is stored in a folder following a precise tree sctructire (see image below).
@@ -42,7 +42,6 @@ With an aditor of choice, open the file **python -> dropbox_uploader.py** and ma
 ```
 # Point this to your python installation
 #!/usr/bin/python
-
 ```
 
 Finally, open the **config.ini** file and copy here the token from Dropbox and the location of the path to the repository.
