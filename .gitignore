@@ -58,4 +58,5 @@ docs/_build/
 target/
 
 
-# Custom ognore
+# Custom ignore
+prepros-6\.config
