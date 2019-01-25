@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+
+    <!-- CSS -->
+    <!-- Add Material font (Roboto) and Material icon as needed -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Add Material CSS, replace Bootstrap CSS -->
+    <link href="css/material.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="form-container">
+        <div class="form-box">
+            <div class="form-title">Homework Submission Form</div>
+
+            <form id="uploadForm" action="php/upload_file.php" method="post" enctype="multipart/form-data" class="needs-validation box"
+                novalidate>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputStudentID">Student ID / Team number</label>
+                        <input type="number" class="form-control" placeholder="1234456789" name="sid" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Please add a numerical ID
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email"
+                            required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Not a valid email
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck" name="teamProject">
+                        <label class="form-check-label" for="gridCheck">
+                            This is a team project
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Class code</label>
+                        <select id="inputState" class="form-control" name="subject" required>
+                            <option disabled selected value>Choose</option>
+                            <option>ID220</option>
+                            <option>ID311</option>
+                        </select>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Choose a class
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputState">Homework</label>
+                        <select id="inputState" class="form-control" name="hw" required>
+                            <option disabled selected value>Choose</option>
+                            <option value="0">HW0</option>
+                            <option value="1">HW1</option>
+                            <option value="2">HW2</option>
+                            <option value="3">HW3</option>
+                            <option value="4">HW4</option>
+                            <option value="5">HW5</option>
+                        </select>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Choose a homework number
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Upload your file (Max 20MB, only .zip files)</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Choose a valid file
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-secondary" name="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+        document.getElementById("uploadForm").onkeypress = function (e) {
+            var key = e.charCode || e.keyCode || 0;
+            if (key == 13) {
+                e.preventDefault();
+            }
+        }
+    </script>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <!-- Then Material JavaScript on top of Bootstrap JavaScript -->
+    <script src="js/material.min.js"></script>
+
+
+</body>
+
+</html>

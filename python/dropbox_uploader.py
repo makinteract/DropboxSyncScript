@@ -1,33 +1,16 @@
-"""Upload the contents of your Downloads folder to Dropbox.
+#!/usr/bin/python
 
-This is an example app for API v2.
-"""
+import dropbox, configparser
+import shutil, sys, os, re
 
-# from __future__ import print_function
+# GLOBALS loaded from config files
+config = configparser.ConfigParser()
+config.read('../config.ini')
 
-# import argparse
-# import contextlib
-# import datetime
-# import os
-# import six
-# import sys
-# import time
-# import unicodedata
-
-# if sys.version.startswith('2'):
-#     input = raw_input  # noqa: E501,F821; pylint: disable=redefined-builtin,undefined-variable,useless-suppression
-
-import dropbox, sys, os, re
-import shutil
-
-APP_KEY= "brdyyqjcmyb1fib"
-APP_SECRET= "bckefpjgtz7e9au"
-TOKEN= "FJcbNXHb_ckAAAAAAAC1_tsy6EMXzNU93vIxoGwmEUNkAal3L2QYMUccxMW0v1N0"
-
-
-BASE_DIR= "/mnt/c/Users/Andrea/GIT/DropboxSyncScript/"
-UPLOAD_DIR= BASE_DIR+"upload/"
-ARCHIVE_DIR= BASE_DIR+"archive/"
+TOKEN = config['DEFAULT']['TOKEN'] 
+BASE_DIR= config['DEFAULT']['BASE_DIR'] 
+UPLOAD_DIR= BASE_DIR + config['DEFAULT']['UPLOAD_DIR'] 
+ARCHIVE_DIR= BASE_DIR + config['DEFAULT']['ARCHIVE_DIR'] 
 
 
 class TransferData:
@@ -78,9 +61,13 @@ def extractFileInfo (filename):
 
 def fileInfoToPath (fileInfo):
     if fileInfo[-1] == "INDIVIDUAL":
-        return os.path.join (fileInfo[0], fileInfo[1], fileInfo[2])
+        return os.path.join (fileInfo[0], "HW"+fileInfo[1], fileInfo[2])
     else:
-        return os.path.join (fileInfo[0], "TEAMS", fileInfo[1], fileInfo[2])
+        return os.path.join (fileInfo[0], "HW"+fileInfo[1], "TEAMS", fileInfo[2])
+
+
+
+# --------   MAIN    -------------- 
 
 
 if __name__ == '__main__':
