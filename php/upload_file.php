@@ -15,7 +15,7 @@ function getEmail()
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		return $email;
 	}else{
-		displayError ("Unable to send your homework: this is an invalid email. ");
+		displayError ("The email provided is not valid");
 	}
 }
 
@@ -25,7 +25,7 @@ function getStudentId ()
 	if (preg_match("/^[0-9]*$/", $sid)) {
 		return $sid;
 	}else{
-		displayError ("Unable to send your homework: this is an invalid Student ID.");
+		displayError ("Invalid student or team ID");
 	}
 }
 
@@ -36,7 +36,7 @@ function getHw ()
 	if (preg_match("/^[0-9]*$/", $hw)) {
 		return $hw;
 	}else{
-		displayError ("Unable to send your homework: this is an invalid Homework Number.");
+		displayError ("Invalid homework number");
 	}
 }
 
@@ -83,20 +83,24 @@ function getUploadedFile ()
     if (validateFile($filename)) {
 		return $fileTemp;
 	}else{
-		displayError ("Unable to send your homework: this is an invalid file (not a <i>.zip</i> file? Larger than <i>20MB</i>?)");
+		displayError ("Invalid file type or size: (is it a <i>.zip</i> file? is it smaller than <i>20MB</i>?)");
 	}
 }
 
 function displayError($message)
 {
-	$result = "<h5 class=\"error\">" . $message . "</h5>";
+	$result_type = "error";
+	$result_header = "There was a problem with your submission";
+	$result_footer = $message;
 	include $GLOBALS['RESULT_PAGE'];
 	exit();
 }
 
-function displaySuccess($message)
+function displaySuccess($fileToSave, $timeStamp)
 {
-	$result = "<h5 class=\"correct\">" . $message . "</h5>";
+	$result_type = "correct";
+	$result_header = "We received the file";
+	$result_footer = "file received at ".$timeStamp;
 	include $GLOBALS['RESULT_PAGE'];
 }
 
@@ -132,7 +136,7 @@ move_uploaded_file($uploadedFile, $GLOBALS['UPLOAD_DIR'] . $fileToSave);
 $command = escapeshellcmd('../python/dropbox_uploader.py');
 $output = shell_exec($command);
 
-displaySuccess ("We successfully received your file: " . $fileToSave . " on " . $submissionTime);
+displaySuccess ($fileToSave, $submissionTime);
 
 // Log to file
 $timeStamp = date("F_j_Y-G:i");

@@ -47,3 +47,15 @@
     color: red;
     font-weight: bold;
 }
+
+.fileName
+{
+    color: rgba(0,0,0,0.5);
+    font-weight: bold;
+    text-align: center;  
+}
+
+.error-footer
+{
+    margin-top: 10%;
+}
