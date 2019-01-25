@@ -59,5 +59,3 @@ target/
 
 
 # Custom ognore
-files/upload/**
-files/archive/**
