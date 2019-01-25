@@ -1,16 +1,19 @@
 #!/usr/bin/python
 
-import dropbox, configparser
+
+import dropbox
+from ConfigParser import SafeConfigParser
 import shutil, sys, os, re
+import datetime
 
 # GLOBALS loaded from config files
-config = configparser.ConfigParser()
-config.read('../config.ini')
+parser = SafeConfigParser()
+parser.read('../config.ini')
 
-TOKEN = config['DEFAULT']['TOKEN'] 
-BASE_DIR= config['DEFAULT']['BASE_DIR'] 
-UPLOAD_DIR= BASE_DIR + config['DEFAULT']['UPLOAD_DIR'] 
-ARCHIVE_DIR= BASE_DIR + config['DEFAULT']['ARCHIVE_DIR'] 
+TOKEN = parser.get('DEFAULT','TOKEN')
+BASE_DIR= parser.get('DEFAULT','BASE_DIR')
+UPLOAD_DIR= BASE_DIR + parser.get('DEFAULT','UPLOAD_DIR')
+ARCHIVE_DIR= BASE_DIR + parser.get('DEFAULT','ARCHIVE_DIR')
 
 
 class TransferData:
@@ -45,6 +48,9 @@ def moveFile (filename, source, dest):
     if not os.path.isdir(dest): return
     shutil.move(theFile, fullName (filename, dest))
 
+def renameFile (filename, newFilename):
+    if not os.path.isfile(filename): return
+    os.rename(filename, newFilename)
 
 def fullName (filename, dir):
     return os.path.join (dir, filename)
@@ -82,6 +88,11 @@ if __name__ == '__main__':
         if fileInfo != None:
             destFile = os.path.join ("/", fileInfoToPath(fileInfo), filename)
 
-            print "Uploading ", fullName(filename, UPLOAD_DIR), " to ", destFile
-            dbx.upload_file (fullName(filename, UPLOAD_DIR), destFile)
-            moveFile (filename, UPLOAD_DIR, ARCHIVE_DIR)
+            srcOriginal= fullName(filename, UPLOAD_DIR)
+            newFilename= str(datetime.datetime.now())+"_"+filename
+            srcModified= fullName(newFilename, UPLOAD_DIR)
+
+            print "Uploading ", srcOriginal, " to ", destFile
+            dbx.upload_file (srcOriginal, destFile)
+            renameFile (srcOriginal, srcModified)
+            moveFile (newFilename, UPLOAD_DIR, ARCHIVE_DIR)
