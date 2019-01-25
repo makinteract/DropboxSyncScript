@@ -23,13 +23,13 @@
         <div class="form-box">
             <div class="form-title">Homework Submission Form</div>
 
-            <h4 class="<? echo $result_type ?>"><? echo $result_header ?></h4>
+            <h4 class="<? echo $result_type; ?>"><? echo $result_header; ?></h4>
             <div class="fileName">
-                <h3><? echo $fileToSave ?></h3>
+                <h3><? echo $fileToSave; ?></h3>
             </div>
-            <h5 class="error-footer"><i>Details</i>: <? echo $result_footer ?></h5>
+            <h5 class="error-footer"><i>Details</i>: <? echo $result_footer; ?></h5>
 
-            <? echo $result ?>
+            <p><? echo $result ?></p>
         </div>
     </div>
 

@@ -3,9 +3,9 @@
 // GLOBALS
 $ini_array = parse_ini_file("../config.ini");
 
-$MAX_FILE_SIZE = $ini_array[MAX_FILE_SIZE];
+$MAX_FILE_SIZE = $ini_array[max_file_size];
 $RESULT_PAGE = "result.php";
-$UPLOAD_DIR = $ini_array[BASE_DIR].$ini_array[UPLOAD_DIR];
+$UPLOAD_DIR = $ini_array[base_dir].$ini_array[upload_dir];
 
 
 // HELPERS
@@ -135,11 +135,10 @@ $fileToSave= $team ? $subject . "_" . $hw . "_" . $sid . "_TEAM.zip" : $subject 
 move_uploaded_file($uploadedFile, $GLOBALS['UPLOAD_DIR'] . $fileToSave);
 
 // Transter files to dropbox
-// $command = escapeshellcmd('../python/dropbox_uploader.py');
-// $output = shell_exec($command);
+$command = escapeshellcmd('../python/dropbox_uploader.py');
+$output = shell_exec($command);
 
-// displaySuccess ($fileToSave, $submissionTime);
-echo $GLOBALS['UPLOAD_DIR'];
+displaySuccess ($fileToSave, $submissionTime);
 
 // Log to file
 $timeStamp = date("F_j_Y-G:i");
@@ -153,7 +152,5 @@ $log = $log.',timeStamp='.$timeStamp;
 $log = $log.',fileToSave='.$fileToSave.PHP_EOL;
 
 file_put_contents('./logs'.'.log', $log, FILE_APPEND);
-
-
 
 ?>
