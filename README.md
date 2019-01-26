@@ -65,4 +65,4 @@ Point your web-browser to the **index.html** file, fill up the form and upload y
 
 ### Video
 
-You can see a video that explains this process further at [this link](....)
+You can see a video that explains this process further at [this link](https://youtu.be/rvup91FmcZs)
