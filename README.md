@@ -13,7 +13,7 @@ The software is free of use and can be modified. **Use it at your own risk**.
 
 ### Setup dependencies
 
-Your server needs to be able to run Python (>2.7) and PHP (7.1). You also need to install a couple of Python modules for using **Dropbox** and **configparser**. Please refer to the [Dropbox](https://www.dropbox.com/developers/documentation/python) developers' docs. You might simply need to install your dependencies with pip, like this:
+Your server needs to be able to run Python (>2.7) and PHP (7.0). You also need to install a couple of Python modules for using **Dropbox** and **configparser**. Please refer to the [Dropbox](https://www.dropbox.com/developers/documentation/python) developers' docs. You might simply need to install your dependencies with pip, like this:
 
 ```
 pip install configparser --user
@@ -68,4 +68,4 @@ Point your web-browser to the **index.html** file, fill up the form and upload y
 You can see a video that explains this process further at [this link](https://youtu.be/rvup91FmcZs)
 
 ### Known issues and things to fix
-The file php->upload_file.php seems not work correctly for Php 7.2 or above. The code should be fixed in the future.
+The code was tested with PHP 7.0 on Bluehost. However, it seems that the file php->upload_file.php does not work propely when using PHP 7.3 and MAMP. Future code should be fixed.
