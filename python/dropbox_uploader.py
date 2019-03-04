@@ -29,7 +29,7 @@ class TransferData:
                 "access token from the app console on the web.")
 
         with open(file_from, 'rb') as f:
-            dbx.files_upload(f.read(), file_to)
+            dbx.files_upload(f.read(), file_to, mode=dropbox.files.WriteMode.overwrite)
 
 
 def initDropBox():
