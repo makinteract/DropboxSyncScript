@@ -66,7 +66,7 @@ def extractFileInfo (filename):
 
 def fileInfoToPath (fileInfo):
     if fileInfo[-1] == "INDIVIDUAL":
-        return os.path.join (fileInfo[0], "HW"+fileInfo[1], fileInfo[2])
+        return os.path.join (fileInfo[0], "HW"+fileInfo[1])
     else:
         return os.path.join (fileInfo[0], "HW"+fileInfo[1], "TEAMS", fileInfo[2])
 
