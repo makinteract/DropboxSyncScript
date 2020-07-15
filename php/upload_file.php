@@ -132,8 +132,15 @@ $submissionTime=  date("F j, Y, g:i a");
 
 // Upload the file and display a message
 $fileToSave= $team ? $subject . "_" . $hw . "_" . $sid . "_TEAM.zip" : $subject . "_" . $hw . "_" . $sid . "_INDIVIDUAL.zip";
-move_uploaded_file($uploadedFile, $GLOBALS['UPLOAD_DIR'] . $fileToSave);
+$ack= move_uploaded_file($uploadedFile, $GLOBALS['UPLOAD_DIR'] . $fileToSave);
 
+// Check permission for upload to be 777 (chmod 777 upload)
+// same for archive
+//echo "<p>" . $uploadedFile . "</p>";
+//echo "<p>" . $GLOBALS['UPLOAD_DIR'] . $fileToSave . "</p>";
+//echo "<p>a " . var_dump($ack) . " b</p>";
+
+	
 // Transter files to dropbox
 $command = escapeshellcmd('../python/dropbox_uploader.py');
 $output = shell_exec($command);

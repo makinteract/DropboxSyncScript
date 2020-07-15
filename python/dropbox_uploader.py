@@ -81,7 +81,7 @@ if __name__ == '__main__':
     dbx= TransferData(TOKEN)
    
     # check files
-    print "Check though files"  
+    print "Check through files"  
     for filename in os.listdir(UPLOAD_DIR):
         fileInfo = extractFileInfo (filename)
         if fileInfo != None:
